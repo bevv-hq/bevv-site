@@ -114,6 +114,12 @@ export function serviceJsonLd(service: Service) {
   };
 }
 
+// Frontmatter dates are date-only; schema.org validators want a full
+// date-time with a time zone (e.g. 2026-10-09T00:00:00.000Z).
+function toIsoDateTime(date: string) {
+  return new Date(date).toISOString();
+}
+
 export function articleJsonLd(post: Post) {
   const url = `${siteUrl}/blog/${post.slug}`;
 
@@ -122,8 +128,8 @@ export function articleJsonLd(post: Post) {
     "@type": "BlogPosting",
     headline: post.title,
     description: post.metaDescription,
-    datePublished: post.date,
-    dateModified: post.updated ?? post.date,
+    datePublished: toIsoDateTime(post.date),
+    dateModified: toIsoDateTime(post.updated ?? post.date),
     inLanguage: "en-GB",
     url,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
