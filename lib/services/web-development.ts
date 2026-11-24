@@ -3,17 +3,18 @@ import type { Service } from "./types";
 export const webDevelopment: Service = {
   slug: "web-development",
   title: "Web Development",
-  metaTitle: "Website Design & Development for Breweries, Taprooms and Pubs",
+  h1: "Pub & Brewery Website Design",
+  metaTitle: "Pub & Brewery Website Design | BEVV",
   metaDescription:
-    "Custom websites for breweries, taprooms and pubs. Fast, mobile-first, SEO-ready builds on WordPress, Shopify or headless, with tap lists, bookings and ongoing support.",
+    "Pub and brewery website design from people who know the trade. Custom WordPress, Shopify and headless sites with tap lists, bookings and webshops.",
   shortDescription:
     "Fast, custom-built websites for breweries, taprooms and pubs - made to get people through the door, not just look nice on a laptop.",
   longDescription:
     "Your website is often the first pint someone has with you. We design and build sites that tell your story properly, load in a flash, and make it dead easy to check what's on, book a table or order a case.\n\nEvery build is made for you, not squeezed into a template - modern architecture, mobile-first, SEO-ready from day one, and backed by support that doesn't vanish after launch. WordPress, Shopify, headless or something fully custom, we'll pick the right tool for the job and build it to keep working long after we've shipped it. Premium work, priced fairly.",
   image: "/images/opt-1.png",
   hook: "Your website is often the first pint someone has with you.",
-  contentIntro: ["Websites for breweries, taprooms and pubs that do more than look pretty on a laptop. We design and build custom websites that tell your story, load in a flash and make it dead easy to check what's pouring, book a table or order a mixed case. We don't start from a template or a theme. Every site is built around your venue, your customers and the way your trade actually works.", "Whether you need a brand new site, a rebuild of one that's past its best, or a shop for your beer club, we build it properly on WordPress, Shopify, headless or fully custom. Every site is mobile-first, SEO-ready from day one and backed by support that doesn't vanish after launch. It's premium work at a price that won't make you choke on your pint."],
-  contentSpecialist: { title: "Hospitality Web Design Specialists", paragraphs: ["We don't build websites for dentists, accountants and the odd pub. We build them for breweries, taprooms and pubs, and nobody else. That means we already know what your customers are looking for: tap lists, opening hours, events, bookings, directions and a reason to pick you over the place down the road.", "We're fluent in the tools your trade runs on, from Untappd and booking platforms to EPOS and beer club subscriptions, and we connect them so your website keeps up with your cellar. You get a site that looks the part, works on a phone with one bar of signal in a beer garden, and actually fills seats."] },
+  contentIntro: ["Pub website design, brewery website design and taproom sites, built around how your customers actually find you, book and buy. We design and build custom websites that tell your story, load in a flash and make it dead easy to check what's pouring, book a table or order a mixed case. We don't start from a template or a theme. Every site is built around your venue, your customers and the way your trade actually works.", "Whether you need a brand new site, a rebuild of one that's past its best, or a shop for your beer club, we build it properly on WordPress, Shopify, headless or fully custom. Every site is mobile-first, SEO-ready from day one and backed by support that doesn't vanish after launch. It's premium work at a price that won't make you choke on your pint."],
+  contentSpecialist: { title: "Pub and Brewery Web Design Specialists", paragraphs: ["We don't build websites for dentists, accountants and the odd pub. We build them for breweries, taprooms and pubs, and nobody else. Web design for pubs is a different job to a taproom website, and we know both. That means we already know what your customers are looking for: tap lists, opening hours, events, bookings, directions and a reason to pick you over the place down the road.", "We're fluent in the tools your trade runs on, from Untappd and booking platforms to EPOS and beer club subscriptions, and we connect them so your website keeps up with your cellar. You get a site that looks the part, works on a phone with one bar of signal in a beer garden, and actually fills seats. We also build for distilleries and cider makers."] },
   contentOfferings: { title: "Web Development Services We Offer", description: "Whether you need a site that tells your story, takes bookings or sells beer while you sleep, here's everything we can build for you." },
   subServices: [
     {
@@ -126,6 +127,19 @@ export const webDevelopment: Service = {
         "Ongoing updates, monitoring, fixes and small improvements, so your site keeps working long after we've shipped it - without you needing to think about it. Need a new page for a seasonal release or a tweak before a big event? Drop us a line and it's sorted, by people who already know your site inside out.",
     },
   ],
+  furtherReading: [
+    "what-should-a-pub-website-cost",
+    "squarespace-wix-or-custom-pub-website",
+    "shopify-vs-wordpress-for-breweries",
+    "what-is-a-headless-website-brewery",
+    "selling-beer-online-uk-webshop",
+    "pdf-menu-costing-you-customers",
+  ],
+  landingLinks: [
+    { question: "Building for a pub?", href: "/services/web-development/pub-website-design", label: "Pub website design" },
+    { question: "Building for a brewery?", href: "/services/web-development/brewery-website-design", label: "Brewery website design" },
+  ],
+  caseStudy: true,
   faqs: [
     {
       question: "How much does a website cost?",
@@ -151,6 +165,11 @@ export const webDevelopment: Service = {
       question: "Can I update the website myself?",
       answer:
         "Yes. Every site we build comes with an easy-to-use editor and a walkthrough, so you can change beers, events, menus and news without touching any code. And if you'd rather we handled it, our support plans have you covered.",
+    },
+    {
+      question: "Do you build websites for distilleries?",
+      answer:
+        "Yes. Gin, whisky and cider makers have a lot in common with breweries: a story to tell, a shop to run and age checks at checkout.",
     },
   ],
 };

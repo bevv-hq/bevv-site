@@ -4,6 +4,8 @@ import Link from "next/link";
 import Button from "@/components/Button";
 import Container from "@/components/Container";
 import { getProject, projects } from "@/lib/projects";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbJsonLd } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/seo";
 import { services } from "@/lib/services";
 
@@ -42,6 +44,13 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Work", path: "/work" },
+          { name: project.name, path: `/work/${project.slug}` },
+        ])}
+      />
       <section className="w-full bg-paper">
         <Container className="pt-20 lg:pt-28 pb-10">
           <div>

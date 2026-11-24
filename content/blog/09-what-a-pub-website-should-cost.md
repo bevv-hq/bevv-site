@@ -41,7 +41,7 @@ A freelancer builds a small site (usually 5–10 pages), often from a premium th
 
 **Typical cost:** around £3,000–£12,000 for most small hospitality businesses (more in London or for bigger agencies).
 
-A site designed and built around your venue rather than a template, with proper integrations and setup for search.
+A [custom pub website](/services/web-development) designed and built around your venue rather than a template, with proper integrations and setup for search.
 
 **Good for:** established pubs, taprooms and breweries that want a site that actively brings in bookings, events trade and footfall.
 

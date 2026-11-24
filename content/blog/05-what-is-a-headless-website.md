@@ -81,6 +81,6 @@ Customers never see the join. They just get a fast site where they can read abou
 
 ## Our take
 
-We build headless sites when they're the right fit, and we'll tell you when they're not. The best website is the one that earns its keep, not the one with the fanciest architecture.
+We [build headless sites](/services/web-development) when they're the right fit, and we'll tell you when they're not. The best website is the one that earns its keep, not the one with the fanciest architecture.
 
 **Wondering what you actually need? Start with a free chat. The first pint's on us.**

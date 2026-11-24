@@ -4,9 +4,11 @@ export const siteUrl = "https://bevv.co.uk";
 export const siteName = "BEVV";
 export const contactEmail = "hello@bevv.co.uk";
 export const socialProfiles = [
-  "https://instagram.com/bevv.agency",
   "https://www.linkedin.com/company/bevv",
+  "https://www.instagram.com/bevv.agency",
 ];
+export const founderName = "Joe Shipton";
+export const founderLinkedIn = "https://www.linkedin.com/in/joe-shipton/";
 
 const shareImage = {
   url: "/og-image.jpg",

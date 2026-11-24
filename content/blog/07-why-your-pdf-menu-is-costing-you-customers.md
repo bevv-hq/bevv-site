@@ -51,7 +51,7 @@ Menus change. Specials, seasonal dishes, prices, the guest ale, the pie that sol
 2. Export a new PDF.
 3. Upload it to the website.
 4. Remember to delete the old one.
-5. Update the link on your Google Business Profile.
+5. Update the link on your [Google Business Profile](/services/digital-marketing).
 
 So it doesn't get done, and people turn up expecting a dish you stopped serving in March.
 

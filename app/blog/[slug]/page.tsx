@@ -6,8 +6,8 @@ import Container from "@/components/Container";
 import JsonLd from "@/components/JsonLd";
 import Markdown from "@/components/Markdown";
 import PostRow from "@/components/PostRow";
-import { formatPostDate, getAllPosts, getPost } from "@/lib/blog";
-import { articleJsonLd } from "@/lib/jsonld";
+import { formatPostDate, getAllPosts, getPost, getRelatedPosts } from "@/lib/blog";
+import { articleJsonLd, breadcrumbJsonLd } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -46,11 +46,18 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
   }
 
   const posts = getAllPosts();
-  const more = posts.filter((item) => item.slug !== post.slug).slice(0, 3);
+  const related = getRelatedPosts(post);
 
   return (
     <>
       <JsonLd data={articleJsonLd(post)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Blog", path: "/blog" },
+          { name: post.title, path: `/blog/${post.slug}` },
+        ])}
+      />
 
       <section className="w-full bg-paper">
         <Container className="py-16 lg:py-24">
@@ -64,7 +71,11 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
             {post.title}
           </h1>
           <p className="mt-6 text-sm text-muted">
-            By Joe Shipton &middot; {formatPostDate(post.date)} &middot; {post.readingMinutes} min read
+            By Joe Shipton &middot; Published {formatPostDate(post.date)}
+            {post.updated && post.updated !== post.date && (
+              <> &middot; Updated {formatPostDate(post.updated)}</>
+            )}{" "}
+            &middot; {post.readingMinutes} min read
           </p>
         </Container>
       </section>
@@ -80,14 +91,14 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
         </Container>
       </section>
 
-      {more.length > 0 && (
+      {related.length > 0 && (
         <section className="bg-mist">
           <Container className="py-16 lg:py-20">
             <h2 className="font-display text-3xl leading-tight tracking-wide text-ink sm:text-5xl">
-              Keep reading
+              Related posts
             </h2>
             <div className="mt-8">
-              {more.map((item) => (
+              {related.map((item) => (
                 <PostRow key={item.slug} post={item} />
               ))}
             </div>

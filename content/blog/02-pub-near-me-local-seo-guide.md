@@ -11,7 +11,7 @@ date: "2026-10-09"
 
 Somewhere near you, right now, someone's standing on a pavement with their phone out, typing "pub near me". Maybe they're visiting for the weekend. Maybe they've just moved in round the corner. Maybe their usual's shut for a refit.
 
-Whether they end up at your bar or the chain pub across the road comes down to something called local SEO. It sounds technical. It mostly isn't. Here's how it works and what you can do about it this week.
+Whether they end up at your bar or the chain pub across the road comes down to something called [local SEO](/services/digital-marketing). It sounds technical. It mostly isn't. Here's how it works and what you can do about it this week.
 
 ## How Google decides who shows up
 

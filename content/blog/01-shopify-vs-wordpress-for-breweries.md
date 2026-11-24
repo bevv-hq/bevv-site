@@ -93,6 +93,6 @@ There's no shame in either. A brilliant Shopify site beats a neglected WordPress
 
 ## The bit where we tell you what we do
 
-At BEVV we build on WordPress, Shopify and headless, so we've got no reason to push you one way. We'll ask how you sell, who updates the site and where you want to be in two years, then recommend the platform that fits. Sometimes that's the one you came in thinking of. Sometimes it isn't.
+At BEVV we [build on WordPress, Shopify and headless](/services/web-development), so we've got no reason to push you one way. We'll ask how you sell, who updates the site and where you want to be in two years, then recommend the platform that fits. Sometimes that's the one you came in thinking of. Sometimes it isn't.
 
 **Not sure which way to go? Start with a free chat. The first pint's on us.**
