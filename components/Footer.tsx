@@ -2,13 +2,27 @@ import Link from "next/link";
 import SectionHeading from "./SectionHeading";
 import Button from "./Button";
 import FooterNotes from "./FooterNotes";
-import { FaEnvelope, FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
+import { services } from "@/lib/services";
+import { FaEnvelope, FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa6";
 
 const social = [
   { href: "https://instagram.com/bevv.agency", label: "Instagram", Icon: FaInstagram },
   //{ href: "https://facebook.com/getpoured", label: "Facebook", Icon: FaFacebookF },
   { href: "https://www.linkedin.com/company/bevv", label: "LinkedIn", Icon: FaLinkedinIn },
+  { href: "https://wa.me/447356203989", label: "WhatsApp", Icon: FaWhatsapp },
   { href: "mailto:hello@bevv.co.uk", label: "Email", Icon: FaEnvelope },
+];
+
+const footerLinks = [
+  { href: "/services", label: "Services" },
+  ...services.map((service) => ({
+    href: `/services/${service.slug}`,
+    label: service.title,
+  })),
+  { href: "/work", label: "Work" },
+  { href: "/blog", label: "Blog" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ];
 
 const ctaBackground =
@@ -50,6 +64,21 @@ export default function Footer() {
             <p className="mt-4 text-xs text-paper/70">
                 Please drink responsibly. We&rsquo;ll handle the marketing.
               </p>
+
+            <nav aria-label="Footer" className="mt-4">
+              <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-paper">
+                {footerLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-paper"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
 
           </div>
           <div className="flex flex-col items-start gap-5 sm:items-end sm:text-right">

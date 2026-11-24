@@ -15,6 +15,11 @@ export const metadata = pageMetadata({
 
 const links = [
   { label: "Email", value: "hello@bevv.co.uk", href: "mailto:hello@bevv.co.uk" },
+  {
+    label: "WhatsApp",
+    value: "+44 7356 203989",
+    href: "https://wa.me/447356203989?text=Hi%2C%20I%27d%20like%20a%20free%20chat%20about%20my%20pub%27s%20or%20brewery%27s%20website.",
+  },
   { label: "Instagram", value: "@bevv.agency", href: "https://instagram.com/bevv.agency" },
   { label: "LinkedIn", value: "BEVV on LinkedIn", href: "https://www.linkedin.com/company/bevv" },
   //{ label: "Facebook", value: "@getpoured", href: "https://facebook.com/getpoured" },

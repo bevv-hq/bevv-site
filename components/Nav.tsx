@@ -10,7 +10,7 @@ const links = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services on Tap" },
   { href: "/work", label: "Bottled Projects" },
-  { href: "/blog", label: "Cellar Notes" },
+  { href: "/blog", label: "Blog" },
   { href: "/about", label: "Why BEVV" },
 ];
 
@@ -146,24 +146,37 @@ export default function Nav({ serviceLinks }: { serviceLinks: NavLink[] }) {
                     <li key={link.href} className={hasChildren ? "" : "overflow-hidden"}>
                       <div className={`flex items-center gap-4 ${animation}`} style={delay}>
                         {hasChildren ? (
-                          <button
-                            type="button"
-                            aria-expanded={servicesOpen}
-                            aria-controls={`${menuId}-services`}
-                            tabIndex={open ? 0 : -1}
-                            onClick={() => setServicesOpen((value) => !value)}
-                            className="flex cursor-pointer items-center gap-4 text-left font-display text-5xl leading-none tracking-wide text-paper transition-colors hover:text-accent sm:text-7xl"
-                          >
-                            {link.label}
-                            <span
-                              aria-hidden="true"
-                              className={`inline-block font-sans text-4xl font-light transition-transform duration-200 ${
-                                servicesOpen ? "rotate-45" : ""
-                              }`}
+                          <>
+                            <Link
+                              href={link.href}
+                              onClick={() => {
+                                setOpen(false);
+                                setServicesOpen(false);
+                              }}
+                              tabIndex={open ? 0 : -1}
+                              className="inline-block font-display text-5xl leading-none tracking-wide text-paper transition-colors hover:text-accent sm:text-7xl"
                             >
-                              +
-                            </span>
-                          </button>
+                              {link.label}
+                            </Link>
+                            <button
+                              type="button"
+                              aria-expanded={servicesOpen}
+                              aria-controls={`${menuId}-services`}
+                              aria-label="Show service pages"
+                              tabIndex={open ? 0 : -1}
+                              onClick={() => setServicesOpen((value) => !value)}
+                              className="flex h-12 w-12 cursor-pointer items-center justify-center font-display leading-none text-paper transition-colors hover:text-accent"
+                            >
+                              <span
+                                aria-hidden="true"
+                                className={`inline-block font-sans text-4xl font-light transition-transform duration-200 ${
+                                  servicesOpen ? "rotate-45" : ""
+                                }`}
+                              >
+                                +
+                              </span>
+                            </button>
+                          </>
                         ) : (
                           <Link
                             href={link.href}

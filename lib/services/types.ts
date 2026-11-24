@@ -26,4 +26,14 @@ export type Service = {
   metaTitle?: string;
   metaDescription?: string;
   faqs?: ServiceFaq[];
+  // Visible H1 when it should differ from the service title
+  h1?: string;
+  // Phrases in contentIntro that link out (first match only)
+  introLinks?: { phrase: string; href: string }[];
+  // Blog post slugs shown in the "Further reading" block
+  furtherReading?: string[];
+  // Sector landing pages linked from this service page
+  landingLinks?: { question: string; href: string; label: string }[];
+  // Case study block (links to /work/the-bell-and-bear)
+  caseStudy?: { text: string; showScreenshot?: boolean };
 };

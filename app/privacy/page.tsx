@@ -8,7 +8,7 @@ export const metadata = pageMetadata({
   path: "/privacy",
 });
 
-const lastUpdated = "6 October 2026";
+const lastUpdated = "24 November 2026";
 const email = "hello@bevv.co.uk";
 
 const h2 = "font-display text-4xl leading-none tracking-wide text-ink sm:text-5xl";
@@ -66,6 +66,14 @@ export default function PrivacyPage() {
                 reply to you and to talk about working together. If you email
                 us directly, we keep the email and your address for the same
                 reason.
+              </p>
+              <p>
+                <strong className="text-ink">If you message us on WhatsApp.</strong>{" "}
+                We see your phone number, your WhatsApp name and whatever you
+                send us, and we use it only to reply and to talk about working
+                together. WhatsApp is run by Meta, which handles messages under
+                its own privacy policy. If you&rsquo;d rather not use it,
+                email or the contact form works just as well.
               </p>
               <p>
                 <strong className="text-ink">When you browse the site.</strong>{" "}

@@ -85,4 +85,4 @@ All of this is called **GEO**, or generative engine optimisation. It's SEO's you
 
 ## Want us to check for you?
 
-At BEVV, GEO for hospitality is one of our three core services. We run AI visibility audits for pubs, taprooms and breweries, showing you where you appear, where you don't, and exactly what to fix. **Start with a free chat. The first pint's on us.**
+At BEVV, [GEO for hospitality](/services/geo-for-hospitality) is one of our three core services. We run AI visibility audits for pubs, taprooms and breweries, showing you where you appear, where you don't, and exactly what to fix. **Start with a free chat. The first pint's on us.**

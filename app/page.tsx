@@ -8,18 +8,16 @@ import Image from "next/image";
 import { services } from "@/lib/services";
 import { faqs } from "@/lib/faqs";
 import ProjectCard from "@/components/ProjectCard";
-import EmptyProjectCard from "@/components/EmptyProjectCard";
+import { getAllPosts, formatPostDate } from "@/lib/blog";
 import { projects } from "@/lib/projects";
 import JsonLd from "@/components/JsonLd";
 import { faqJsonLd } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/seo";
+import { steps } from "@/lib/steps";
 
 const featuredFaqs = faqs.filter((faq) => faq.featured);
 const featuredProjects = projects.slice(0, 3);
-const emptySlots = ["Your project here", "Waiting to be filled"].slice(
-  0,
-  Math.max(0, 3 - featuredProjects.length),
-);
+const latestPosts = getAllPosts().slice(0, 3);
 
 export const metadata = pageMetadata({
   title: "Websites, Marketing & AI Search for Breweries and Pubs | BEVV",
@@ -27,29 +25,6 @@ export const metadata = pageMetadata({
     "Custom websites, digital marketing and AI search for breweries, taprooms and pubs. Premium work at a fair price. The first pint's on us.",
   path: "/",
 });
-
-const steps = [
-  {
-    number: "01",
-    title: "The first pint",
-    text: "A free 30-minute call and a health check of your website, search and AI visibility. You tell us what\u2019s going on, we tell you honestly what we\u2019d do.",
-  },
-  {
-    number: "02",
-    title: "The recipe",
-    text: "We put together a clear plan and a fixed quote, built around what you actually need. No surprises, no padding.",
-  },
-  {
-    number: "03",
-    title: "The brew",
-    text: "We design, build and launch, keeping you in the loop the whole way. You\u2019ll never be left wondering what\u2019s happening.",
-  },
-  {
-    number: "04",
-    title: "On tap",
-    text: "We don\u2019t vanish after launch. Ongoing support, marketing and reporting, so it keeps working long after we\u2019ve shipped it.",
-  },
-];
 
 const aiLogos = [
   {
@@ -108,6 +83,9 @@ export default function Home() {
           muted
           loop
           playsInline
+          preload="metadata"
+          poster="/images/hero-poster.jpg"
+          aria-label="Background video of a pint being poured at a bar"
           className="absolute inset-0 h-full w-full object-cover"
         >
           <source src="/video/Hero-2.mp4" type="video/mp4" />
@@ -117,6 +95,9 @@ export default function Home() {
           <h1 className="font-display text-[min(220px,max(9vw,min(21vw,5.5rem)))] leading-[0.85] tracking-wide text-paper">
             Who said <br />Beer can&rsquo;t<br /> be <span className="text-accent">sexy?</span>
           </h1>
+          <p className="max-w-xl text-lg text-paper/90 sm:text-xl">
+            Websites, marketing and AI search for breweries, taprooms and pubs.
+          </p>
           <div className="flex flex-wrap items-center gap-4">
             <Button href="/services/web-development" size="sm" sizeSm="md" size2xl="lg" variant="accent">
               Web Development
@@ -130,7 +111,7 @@ export default function Home() {
           </div>
         </div>
         <div className="absolute bottom-6 right-6 z-10 hidden max-w-sm md:block 2xl:bottom-10 2xl:right-16">
-          <h2 className="text-2xl font-display leading-relaxed text-paper/90">We are BEVV</h2>
+          <p className="text-2xl font-display leading-relaxed text-paper/90">We are BEVV</p>
           <p className="text-sm leading-relaxed text-paper/60 mb-3">
             We build websites, run marketing and sort AI search for independent breweries, taprooms and pubs. No agency-speak. No stock photos of laptops.
           </p>
@@ -148,7 +129,7 @@ export default function Home() {
             <div className="relative hidden aspect-[4/5] w-full overflow-hidden rounded-2xl bg-mist md:block">
               <Image
                 src="/images/home-temp.jpg"
-                alt=""
+                alt="A pint of beer on a green table beside a laptop and a notepad"
                 fill
                 sizes="(min-width: 1024px) 35vw, 100vw"
                 className="object-cover"
@@ -185,7 +166,7 @@ export default function Home() {
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[55fr_45fr] lg:gap-16">
             <div className="text-muted">
               <p>
-                A website&rsquo;s only as good as the pint it&rsquo;s selling. We build the sites, run the marketing and handle everything in between, so more people find your taproom, order online and turn up thirsty. No agency-speak, no bloated packages. Just work that earns its keep.
+                A website&rsquo;s only as good as the pint it&rsquo;s selling. We build the sites, run the marketing and handle everything in between, so more people find your taproom, order online and turn up thirsty. No bloated packages. Just work that earns its keep.
               </p>
             </div>
             <div className="flex md:justify-end">
@@ -206,6 +187,16 @@ export default function Home() {
               />
             ))}
           </div>
+          <p className="mt-8 text-muted">
+            See it in action:{" "}
+            <Link
+              href="/work/the-bell-and-bear"
+              className="font-semibold text-ink underline decoration-line underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+            >
+              The Bell &amp; Bear
+            </Link>
+            , a full website rebuild for a community pub.
+          </p>
         </Container>
       </section>
 
@@ -262,20 +253,17 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-[1.6fr_1fr_1fr]">
+          <div
+            className={`grid grid-cols-1 gap-6 ${
+              featuredProjects.length > 1 ? "md:grid-cols-[1.6fr_1fr_1fr]" : "md:max-w-xl"
+            }`}
+          >
             {featuredProjects.map((project, index) => (
               <ProjectCard
                 key={project.slug}
                 project={project}
                 number={String(index + 1).padStart(2, "0")}
                 tone="light"
-              />
-            ))}
-            {emptySlots.map((label, index) => (
-              <EmptyProjectCard
-                key={label + index}
-                number={String(featuredProjects.length + index + 1).padStart(2, "0")}
-                label={label}
               />
             ))}
           </div>
@@ -287,10 +275,15 @@ export default function Home() {
         <Container className="relative z-10 py-20">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[55fr_45fr] lg:gap-16">
             <div>
-              <h2 className="font-display text-5xl md:text-7xl tracking-wide text-paper">GEO? GE-OH??</h2>
-              <h3 className="mt-4 max-w-2xl font-display text-2xl tracking-wide text-accent sm:text-3xl">
+              <h2 className="font-display tracking-wide text-paper">
+                <span className="block text-5xl md:text-7xl">GEO? GE-OH??</span>
+                <span className="mt-3 block text-2xl text-paper/80 sm:text-3xl">
+                  AI search optimisation for pubs and breweries
+                </span>
+              </h2>
+              <p className="mt-4 max-w-2xl font-display text-2xl tracking-wide text-accent sm:text-3xl">
                 Get found when people ask AI where to drink
-              </h3>
+              </p>
               <p className="mt-6 max-w-2xl text-paper/70">
                 Drinkers aren&rsquo;t just Googling anymore. They&rsquo;re asking ChatGPT, Google AI Overviews and voice assistants where to grab a decent pint. Our GEO service makes sure your brewery, taproom or pub is easy for AI to read, understand and recommend. We cover everything from structured data and crawlability to answer-led content and ongoing visibility monitoring.
               </p>
@@ -342,8 +335,40 @@ export default function Home() {
       </section>
 
       <section className="border-t border-line bg-paper">
+        <Container className="py-20 md:py-28">
+          <h2 className="font-display tracking-wide text-ink">
+            <span className="block text-5xl leading-none md:text-7xl">Latest from the blog</span>
+          </h2>
+          <p className="mt-6 max-w-2xl text-muted">
+            Practical, no-jargon advice on websites, local SEO and AI search for pubs, taprooms and breweries.
+          </p>
+          <ul className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3">
+            {latestPosts.map((post) => (
+              <li key={post.slug} className="border-t border-line pt-6">
+                <p className="text-sm text-muted">{formatPostDate(post.date)}</p>
+                <h3 className="mt-2 font-display text-3xl leading-tight tracking-wide text-ink">
+                  <Link href={`/blog/${post.slug}`} className="transition-colors hover:text-accent">
+                    {post.title}
+                  </Link>
+                </h3>
+                <p className="mt-3 text-muted">{post.metaDescription}</p>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-10">
+            <Button href="/blog" variant="secondary">
+              Read all the blog posts
+            </Button>
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-t border-line bg-paper">
         <Container className="py-20">
-          <h2 className="font-display text-5xl md:text-7xl leading-none tracking-wide text-ink">Silly Questions? No Such Thing!</h2>
+          <h2 className="font-display tracking-wide text-ink">
+            <span className="block text-5xl leading-none md:text-7xl">Silly Questions? No Such Thing!</span>
+            <span className="mt-3 block text-2xl text-muted sm:text-3xl">Frequently asked questions</span>
+          </h2>
           <p className="mt-6 max-w-2xl text-muted">
             Everything we get asked before someone books a chat, with honest answers and no sales spin.
           </p>

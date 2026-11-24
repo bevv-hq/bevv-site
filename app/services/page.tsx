@@ -36,7 +36,11 @@ export default function ServicesPage() {
           </div>
 
           <p className="max-w-xl text-ink/70">
-            Websites, digital marketing and AI search for breweries, taprooms
+            <Link href="/services/web-development" className="underline decoration-accent underline-offset-4 hover:text-accent">Web development</Link>,{" "}
+            <Link href="/services/digital-marketing" className="underline decoration-accent underline-offset-4 hover:text-accent">digital marketing</Link>{" "}
+            and{" "}
+            <Link href="/services/geo-for-hospitality" className="underline decoration-accent underline-offset-4 hover:text-accent">AI search (GEO for hospitality)</Link>{" "}
+            for breweries, taprooms
             and pubs. Whether you need a new site, a busier diary or a spot in
             ChatGPT&rsquo;s recommendations, we make it for you and we do it
             properly. It&rsquo;s premium work at a price that won&rsquo;t make

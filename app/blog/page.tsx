@@ -5,9 +5,9 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata = {
   ...pageMetadata({
-    title: "Cellar Notes | Website, SEO & AI Search Advice for Pubs and Breweries | BEVV",
+    title: "Blog: Website & Marketing Advice for Pubs and Breweries | BEVV",
     description:
-      "Straight-talking guides on websites, local SEO and AI search for pubs, taprooms and breweries. No jargon, no fluff, and the odd pint reference.",
+      "Practical, no-jargon advice on websites, local SEO and AI search for pubs, taprooms and breweries.",
     path: "/blog",
   }),
   alternates: {

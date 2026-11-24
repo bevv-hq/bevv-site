@@ -124,4 +124,4 @@ Whichever you choose, the platform won't make you legal on its own. It's how you
 
 ## Want it built right?
 
-We build webshops for breweries, taprooms and pubs on Shopify, WooCommerce and headless, with age verification, mixed cases and beer clubs set up properly from day one. **Start with a free chat. The first pint's on us.**
+We [build webshops](/services/web-development) for breweries, taprooms and pubs on Shopify, WooCommerce and headless, with age verification, mixed cases and beer clubs set up properly from day one. **Start with a free chat. The first pint's on us.**

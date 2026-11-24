@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import Button from "@/components/Button";
 import Container from "@/components/Container";
 import SectionHeading from "@/components/SectionHeading";
 import FAQItem from "@/components/FAQItem";
+import LinkedParagraphs from "@/components/LinkedParagraphs";
+import FurtherReading from "@/components/FurtherReading";
+import CaseStudyBlock from "@/components/CaseStudyBlock";
 import SubServiceItem from "@/components/SubServiceItem";
 import MoreServicesModal from "@/components/MoreServicesModal";
 import { services } from "@/lib/services";
 import JsonLd from "@/components/JsonLd";
-import { faqJsonLd, serviceJsonLd } from "@/lib/jsonld";
+import { breadcrumbJsonLd, faqJsonLd, serviceJsonLd } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -58,6 +62,13 @@ export default async function ServicePage({
   return (
     <>
       <JsonLd data={serviceJsonLd(service)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: service.title, path: `/services/${service.slug}` },
+        ])}
+      />
       {service.faqs && service.faqs.length > 0 && (
         <JsonLd data={faqJsonLd(service.faqs)} />
       )}
@@ -65,7 +76,7 @@ export default async function ServicePage({
         <Container className="grid grid-cols-1 gap-10 py-20 lg:grid-cols-2 lg:items-end lg:gap-16 lg:py-28">
           <div>
             <h1 className="font-display text-[min(120px,max(9vw,min(18vw,4.5rem)))] leading-[0.85] tracking-wide text-ink">
-             {service.title}
+             {service.h1 ?? service.title}
             </h1>
             {service.hook && (
               <p className="mt-6 max-w-xl font-display text-3xl leading-tight tracking-wide text-ink sm:text-4xl">
@@ -88,11 +99,10 @@ export default async function ServicePage({
 
           <div className="max-w-xl">
             <div className="space-y-5 text-ink/70">
-              {(service.contentIntro ?? service.longDescription.split("\n\n")).map(
-                (paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ),
-              )}
+              <LinkedParagraphs
+                paragraphs={service.contentIntro ?? service.longDescription.split("\n\n")}
+                links={service.introLinks}
+              />
             </div>
           </div>
         </Container>
@@ -162,6 +172,35 @@ export default async function ServicePage({
             </div>
           </Container>
         </section>
+      )}
+
+      {service.landingLinks && (
+        <section className="border-t border-line bg-paper">
+          <Container className="grid grid-cols-1 gap-8 py-16 md:grid-cols-2">
+            {service.landingLinks.map((item) => (
+              <div key={item.href} className="border-t border-ink pt-6">
+                <p className="font-display text-3xl tracking-wide text-ink">{item.question}</p>
+                <Link
+                  href={item.href}
+                  className="mt-4 inline-block font-sans text-sm font-semibold uppercase tracking-wide text-ink underline decoration-accent underline-offset-4 transition-colors hover:text-accent"
+                >
+                  {item.label} &rarr;
+                </Link>
+              </div>
+            ))}
+          </Container>
+        </section>
+      )}
+
+      {service.caseStudy && (
+        <CaseStudyBlock
+          text={service.caseStudy.text}
+          showScreenshot={service.caseStudy.showScreenshot}
+        />
+      )}
+
+      {service.furtherReading && service.furtherReading.length > 0 && (
+        <FurtherReading slugs={service.furtherReading} />
       )}
     </>
   );

@@ -4,9 +4,9 @@ import Button from "@/components/Button";
 import Container from "@/components/Container";
 
 export const metadata = pageMetadata({
-  title: "Why BEVV | Websites, Marketing & AI Search for Breweries and Pubs",
+  title: "About BEVV | Pub & Brewery Web Design, Run by Joe Shipton",
   description:
-    "Why breweries, taprooms and pubs choose a specialist. Custom websites, marketing and AI search from people who know the trade, at a price that won't make you wince.",
+    "Meet Joe Shipton, founder of BEVV. Websites, marketing and AI search for breweries, taprooms and pubs, from someone who knows the trade.",
   path: "/about",
 });
 
@@ -187,7 +187,7 @@ export default function AboutPage() {
           <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-line bg-mist">
             <Image
               src="/images/joe.png"
-              alt="Joe, founder of BEVV"
+              alt="Joe Shipton, founder of BEVV"
               fill
               sizes="(min-width: 1024px) 40vw, 100vw"
               className="object-cover"
@@ -197,7 +197,7 @@ export default function AboutPage() {
             <h2 className="font-display text-3xl leading-tight tracking-wide text-ink sm:text-5xl">Who&rsquo;s behind the bar</h2>
             <div className="mt-6 max-w-2xl space-y-5 text-muted">
               <p>
-                I&rsquo;m Joe. I started BEVV because I kept watching
+                I&rsquo;m Joe Shipton. I started BEVV because I kept watching
                 brilliant breweries and pubs get treated like every other
                 small business, handed the same templates, the same jargon and
                 the same invoices as an estate agent. But this trade has its

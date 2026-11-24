@@ -25,6 +25,13 @@ export const metadata: Metadata = {
   title: "Websites, Marketing & AI Search for Breweries and Pubs | BEVV",
   description:
     "Custom websites, digital marketing and AI search for breweries, taprooms and pubs. Premium work at a fair price. The first pint's on us.",
+  openGraph: {
+    siteName: "BEVV",
+    locale: "en_GB",
+    type: "website",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "BEVV: websites and marketing for breweries, taprooms and pubs" }],
+  },
+  twitter: { card: "summary_large_image", images: ["/og-image.jpg"] },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

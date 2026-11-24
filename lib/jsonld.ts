@@ -1,31 +1,50 @@
-import { contactEmail, siteName, siteUrl, socialProfiles } from "@/lib/seo";
+import {
+  contactEmail,
+  founderLinkedIn,
+  founderName,
+  siteName,
+  siteUrl,
+  socialProfiles,
+} from "@/lib/seo";
 import type { Service } from "@/lib/services";
 import type { FAQ } from "@/lib/faqs";
 import type { Post } from "@/lib/blog";
 
 export const organizationId = `${siteUrl}/#organization`;
+export const personId = `${siteUrl}/#joe`;
 
 export const organizationJsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "ProfessionalService",
+      "@type": ["Organization", "ProfessionalService"],
       "@id": organizationId,
       name: siteName,
       url: siteUrl,
+      logo: `${siteUrl}/icon.png`,
+      image: `${siteUrl}/og-image.jpg`,
       email: contactEmail,
-      sameAs: socialProfiles,
       description:
-        "Custom websites, digital marketing and AI search optimisation for breweries, taprooms and pubs.",
+        "Websites, digital marketing and AI search for breweries, taprooms and pubs.",
       areaServed: { "@type": "Country", name: "United Kingdom" },
-      founder: { "@type": "Person", name: "Joe Shipton" },
+      founder: { "@id": personId },
+      sameAs: socialProfiles,
       knowsAbout: [
-        "Website design and development",
-        "Digital marketing",
+        "Pub website design",
+        "Brewery website design",
         "Local SEO",
         "Generative engine optimisation",
-        "Hospitality marketing",
+        "Shopify",
+        "WordPress",
       ],
+    },
+    {
+      "@type": "Person",
+      "@id": personId,
+      name: founderName,
+      jobTitle: "Founder",
+      worksFor: { "@id": organizationId },
+      sameAs: [founderLinkedIn],
     },
     {
       "@type": "WebSite",
@@ -37,6 +56,19 @@ export const organizationJsonLd = {
     },
   ],
 };
+
+export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: `${siteUrl}${item.path}`,
+    })),
+  };
+}
 
 export function faqJsonLd(faqs: Pick<FAQ, "question" | "answer">[]) {
   return {
@@ -87,17 +119,17 @@ export function articleJsonLd(post: Post) {
 
   return {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     headline: post.title,
     description: post.metaDescription,
     datePublished: post.date,
     dateModified: post.updated ?? post.date,
     inLanguage: "en-GB",
     url,
-    mainEntityOfPage: url,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
     image: `${siteUrl}/og-image.jpg`,
     keywords: post.targetKeyword,
-    author: { "@type": "Person", name: "Joe Shipton", url: `${siteUrl}/about` },
+    author: { "@id": personId },
     publisher: { "@id": organizationId },
   };
 }

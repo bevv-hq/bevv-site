@@ -9,7 +9,7 @@ date: "2026-10-09"
 
 # Squarespace, Wix or Custom? When a DIY Pub Website Stops Being a Bargain
 
-We build custom websites for a living, so you'd expect us to tell you DIY website builders are rubbish.
+We [build custom websites](/services/web-development) for a living, so you'd expect us to tell you DIY website builders are rubbish.
 
 They're not. Squarespace and Wix are genuinely good tools, and for plenty of pubs and small breweries they're the right call. But there's a point where a DIY site stops saving you money and starts costing you customers. This post is about spotting that point.
 

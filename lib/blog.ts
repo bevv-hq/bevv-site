@@ -10,6 +10,7 @@ export type Post = {
   targetKeyword: string;
   date: string;
   updated?: string;
+  related?: string[];
   readingMinutes: number;
   content: string;
 };
@@ -44,6 +45,7 @@ function readPosts(): Post[] {
           targetKeyword: String(data.target_keyword ?? ""),
           date: String(data.date),
           updated: data.updated ? String(data.updated) : undefined,
+          related: Array.isArray(data.related) ? data.related.map(String) : undefined,
           readingMinutes: Math.max(1, Math.round(words / 220)),
           content: body,
         },
@@ -68,4 +70,52 @@ export function formatPostDate(date: string) {
     month: "long",
     year: "numeric",
   });
+}
+
+// Used when a post has no `related` frontmatter field.
+const fallbackRelated: Record<string, string[]> = {
+  "shopify-vs-wordpress-for-breweries": [
+    "selling-beer-online-uk-webshop",
+    "what-is-a-headless-website-brewery",
+    "what-should-a-pub-website-cost",
+  ],
+  "pub-near-me-local-seo-guide": [
+    "will-chatgpt-recommend-your-pub",
+    "pdf-menu-costing-you-customers",
+  ],
+  "will-chatgpt-recommend-your-pub": [
+    "pub-near-me-local-seo-guide",
+    "pdf-menu-costing-you-customers",
+  ],
+  "squarespace-wix-or-custom-pub-website": [
+    "what-should-a-pub-website-cost",
+    "shopify-vs-wordpress-for-breweries",
+  ],
+  "what-is-a-headless-website-brewery": [
+    "shopify-vs-wordpress-for-breweries",
+    "what-should-a-pub-website-cost",
+  ],
+  "selling-beer-online-uk-webshop": [
+    "shopify-vs-wordpress-for-breweries",
+    "what-should-a-pub-website-cost",
+  ],
+  "pdf-menu-costing-you-customers": [
+    "pub-near-me-local-seo-guide",
+    "will-chatgpt-recommend-your-pub",
+  ],
+  "what-should-a-pub-website-cost": [
+    "squarespace-wix-or-custom-pub-website",
+    "shopify-vs-wordpress-for-breweries",
+  ],
+};
+
+export function getRelatedPosts(post: Post): Post[] {
+  const slugs = post.related ?? fallbackRelated[post.slug] ?? [];
+  return slugs
+    .filter((slug) => slug !== post.slug)
+    .flatMap((slug) => {
+      const found = getPost(slug);
+      return found ? [found] : [];
+    })
+    .slice(0, 3);
 }
