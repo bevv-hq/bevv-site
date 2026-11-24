@@ -124,7 +124,7 @@ export default function Home() {
       </section>
 
       <section>
-        <Container className="pt-20 md:py-48">
+        <Container className="pt-20 md:py-28">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[35fr_65fr] lg:gap-16">
             <div className="relative hidden aspect-[4/5] w-full overflow-hidden rounded-2xl bg-mist md:block">
               <Image
@@ -162,7 +162,7 @@ export default function Home() {
       </section>
 
       <section>
-        <Container className="pb-20 md:pb-48">
+        <Container className="pb-20 md:pb-28">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[55fr_45fr] lg:gap-16">
             <div className="text-muted">
               <p>
@@ -230,7 +230,7 @@ export default function Home() {
       </section>
 
       <section className="bg-paper">
-        <Container className="grid grid-cols-1 gap-10 py-20 lg:grid-cols-[35fr_65fr] lg:gap-20">
+        <Container className="grid grid-cols-1 gap-10 py-20 lg:grid-cols-[65fr_35fr] lg:gap-20">
           <div>
             <h2 className="font-display text-5xl md:text-7xl leading-none tracking-wide text-ink">
               Bottled Projects
@@ -275,17 +275,12 @@ export default function Home() {
         <Container className="relative z-10 py-20">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[55fr_45fr] lg:gap-16">
             <div>
-              <h2 className="font-display tracking-wide text-paper">
-                <span className="block text-5xl md:text-7xl">GEO? GE-OH??</span>
-                <span className="mt-3 block text-2xl text-paper/80 sm:text-3xl">
-                  AI search optimisation for pubs and breweries
-                </span>
-              </h2>
+              <h2 className="font-display text-5xl tracking-wide text-paper md:text-7xl">GEO? GE-OH??</h2>
               <p className="mt-4 max-w-2xl font-display text-2xl tracking-wide text-accent sm:text-3xl">
                 Get found when people ask AI where to drink
               </p>
               <p className="mt-6 max-w-2xl text-paper/70">
-                Drinkers aren&rsquo;t just Googling anymore. They&rsquo;re asking ChatGPT, Google AI Overviews and voice assistants where to grab a decent pint. Our GEO service makes sure your brewery, taproom or pub is easy for AI to read, understand and recommend. We cover everything from structured data and crawlability to answer-led content and ongoing visibility monitoring.
+                Drinkers aren&rsquo;t just Googling anymore. They&rsquo;re asking ChatGPT, Google AI Overviews and voice assistants where to grab a decent pint. Our GEO service is AI search optimisation for pubs and breweries: we make sure your brewery, taproom or pub is easy for AI to read, understand and recommend. We cover everything from structured data and crawlability to answer-led content and ongoing visibility monitoring.
               </p>
               <div className="mt-10">
                 <Button href="/services/geo-for-hospitality" variant="accent">
@@ -334,7 +329,7 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="border-t border-line bg-paper">
+      <section className="bg-mist">
         <Container className="py-20 md:py-28">
           <h2 className="font-display tracking-wide text-ink">
             <span className="block text-5xl leading-none md:text-7xl">Latest from the blog</span>
@@ -363,12 +358,9 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="border-t border-line bg-paper">
-        <Container className="py-20">
-          <h2 className="font-display tracking-wide text-ink">
-            <span className="block text-5xl leading-none md:text-7xl">Silly Questions? No Such Thing!</span>
-            <span className="mt-3 block text-2xl text-muted sm:text-3xl">Frequently asked questions</span>
-          </h2>
+      <section className="bg-paper">
+        <Container className="py-28">
+          <h2 className="font-display text-5xl leading-none tracking-wide text-ink md:text-7xl">Silly Questions? No Such Thing!</h2>
           <p className="mt-6 max-w-2xl text-muted">
             Everything we get asked before someone books a chat, with honest answers and no sales spin.
           </p>

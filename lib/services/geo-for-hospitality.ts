@@ -14,9 +14,7 @@ export const geoForHospitality: Service = {
   hook: "More and more people are asking AI where to go for a pint.",
   introLinks: [{ phrase: "AI search", href: "/blog/will-chatgpt-recommend-your-pub" }],
   furtherReading: ["will-chatgpt-recommend-your-pub", "pub-near-me-local-seo-guide"],
-  caseStudy: {
-    text: "See the kind of site AI tools and search engines can read: a full rebuild for a community pub.",
-  },
+  caseStudy: true,
   contentIntro: ["People have stopped scrolling Google for somewhere to drink. They're asking ChatGPT, Perplexity and Google's AI Overviews, and those tools don't give ten blue links. They give a shortlist. GEO for Hospitality (Generative Engine Optimisation) makes sure your brewery, taproom or pub is on it.", "We look at how AI search sees you today, then fix the gaps in your content, listings, structured data and reputation so they have every reason to recommend you. The result is more of the right people asking the right question and hearing your name in the answer."],
   contentSpecialist: { title: "AI Search Specialists for the Drinks Trade", paragraphs: ["Most GEO advice is written for software companies and online shops. Recommending a pub is a completely different question. People ask AI for things like \"a proper cask pub near the station\", \"a taproom that's good with kids\" or \"somewhere with live music on a Saturday\", and the tools answer based on very specific details about your venue.", "We specialise in exactly that. We make sure every detail about you is clear, consistent and trusted across the web, from your own site to Google, TripAdvisor, Untappd and local guides. We won't promise you a guaranteed ChatGPT mention, because nobody honestly can. What we will do is make you as easy as possible to recommend, then track how that changes over time."] },
   contentOfferings: { title: "GEO Services We Offer", description: "Whether you want to know what AI is saying about you or make sure it starts saying more, here's how we get you into the answer." },

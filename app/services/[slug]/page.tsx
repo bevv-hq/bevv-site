@@ -7,7 +7,7 @@ import SectionHeading from "@/components/SectionHeading";
 import FAQItem from "@/components/FAQItem";
 import LinkedParagraphs from "@/components/LinkedParagraphs";
 import FurtherReading from "@/components/FurtherReading";
-import CaseStudyBlock from "@/components/CaseStudyBlock";
+import ReadingAndCaseStudy from "@/components/ReadingAndCaseStudy";
 import SubServiceItem from "@/components/SubServiceItem";
 import MoreServicesModal from "@/components/MoreServicesModal";
 import { services } from "@/lib/services";
@@ -155,6 +155,22 @@ export default async function ServicePage({
                       <p key={paragraph}>{paragraph}</p>
                     ))}
                   </div>
+                  {service.landingLinks && (
+
+          <div className="grid grid-cols-1 gap-8 py-16 pt-8 md:grid-cols-2">
+            {service.landingLinks.map((item) => (
+              <div key={item.href}>
+                <p className="font-display text-3xl tracking-wide text-ink">{item.question}</p>
+                <Link
+                  href={item.href}
+                  className="mt-4 inline-block font-sans text-sm font-semibold uppercase tracking-wide text-ink underline decoration-accent underline-offset-4 transition-colors hover:text-accent"
+                >
+                  {item.label} &rarr;
+                </Link>
+              </div>
+            ))}
+          </div>
+      )}
                 </>
               )}
             </div>
@@ -174,33 +190,12 @@ export default async function ServicePage({
         </section>
       )}
 
-      {service.landingLinks && (
-        <section className="border-t border-line bg-paper">
-          <Container className="grid grid-cols-1 gap-8 py-16 md:grid-cols-2">
-            {service.landingLinks.map((item) => (
-              <div key={item.href} className="border-t border-ink pt-6">
-                <p className="font-display text-3xl tracking-wide text-ink">{item.question}</p>
-                <Link
-                  href={item.href}
-                  className="mt-4 inline-block font-sans text-sm font-semibold uppercase tracking-wide text-ink underline decoration-accent underline-offset-4 transition-colors hover:text-accent"
-                >
-                  {item.label} &rarr;
-                </Link>
-              </div>
-            ))}
-          </Container>
-        </section>
-      )}
 
-      {service.caseStudy && (
-        <CaseStudyBlock
-          text={service.caseStudy.text}
-          showScreenshot={service.caseStudy.showScreenshot}
-        />
-      )}
-
-      {service.furtherReading && service.furtherReading.length > 0 && (
-        <FurtherReading slugs={service.furtherReading} />
+      {service.caseStudy && service.furtherReading && service.furtherReading.length > 0 ? (
+        <ReadingAndCaseStudy slugs={service.furtherReading} />
+      ) : (
+        service.furtherReading &&
+        service.furtherReading.length > 0 && <FurtherReading slugs={service.furtherReading} />
       )}
     </>
   );

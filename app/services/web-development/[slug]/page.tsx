@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Button from "@/components/Button";
@@ -221,15 +222,34 @@ export default async function LandingPage({
         </Container>
       </section>
 
-      <FurtherReading slugs={page.furtherReading} />
-
-      <section className="border-t border-line bg-paper">
-        <Container className="py-16">
-          <p className="font-display text-3xl tracking-wide text-ink">{page.sibling.question}</p>
-          <p className="mt-3 max-w-xl text-muted">{page.sibling.text}</p>
-          <Link href={page.sibling.link.href} className={`${linkClass} mt-5 inline-block`}>
-            {page.sibling.link.label} &rarr;
-          </Link>
+      <section className="border-t border-line bg-mist">
+        <Container className="grid grid-cols-1 gap-16 py-20 lg:grid-cols-2 lg:items-center lg:gap-24">
+          <div>
+            <FurtherReading slugs={page.furtherReading} bare />
+          </div>
+          <div className="relative mb-16 lg:mb-0">
+            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-ink lg:aspect-[4/3]">
+              <Image
+                src={page.image.src}
+                alt={page.image.alt}
+                fill
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="absolute -bottom-10 left-4 right-4 rounded-2xl bg-ink p-8 shadow-xl sm:left-8 sm:right-auto sm:max-w-sm lg:-left-12 lg:bottom-10">
+              <p className="font-display text-3xl tracking-wide text-paper">
+                {page.sibling.question}
+              </p>
+              <p className="mt-3 text-sm text-paper/70">{page.sibling.text}</p>
+              <Link
+                href={page.sibling.link.href}
+                className="mt-5 inline-block font-sans text-sm font-semibold uppercase tracking-wide text-paper underline decoration-accent underline-offset-4 transition-colors hover:text-accent"
+              >
+                {page.sibling.link.label} &rarr;
+              </Link>
+            </div>
+          </div>
         </Container>
       </section>
     </>

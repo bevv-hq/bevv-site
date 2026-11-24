@@ -35,5 +35,5 @@ export type Service = {
   // Sector landing pages linked from this service page
   landingLinks?: { question: string; href: string; label: string }[];
   // Case study block (links to /work/the-bell-and-bear)
-  caseStudy?: { text: string; showScreenshot?: boolean };
+  caseStudy?: boolean;
 };

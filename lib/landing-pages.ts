@@ -26,6 +26,8 @@ export type LandingPage = {
   faqs: LandingFaq[];
   furtherReading: string[];
   sibling: { question: string; text: string; link: LandingLink };
+  // Photo beside the Further reading list, with the sibling link overlaid
+  image: { src: string; alt: string };
 };
 
 export const pubWebsiteDesign: LandingPage = {
@@ -167,6 +169,10 @@ export const pubWebsiteDesign: LandingPage = {
       href: "/services/web-development/brewery-website-design",
       label: "Brewery website design",
     },
+  },
+  image: {
+    src: "/images/pub-front.jpg",
+    alt: "The brick front of a traditional pub with hanging flower baskets and a sign reading Food Served Daily, Beer Garden, Fine Selection of Ales",
   },
 };
 
@@ -312,6 +318,10 @@ export const breweryWebsiteDesign: LandingPage = {
       href: "/services/web-development/pub-website-design",
       label: "Pub website design",
     },
+  },
+  image: {
+    src: "/images/cask-barrels.jpg",
+    alt: "Three stacked metal beer casks with red and white painted bands",
   },
 };
 

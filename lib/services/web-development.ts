@@ -139,10 +139,7 @@ export const webDevelopment: Service = {
     { question: "Building for a pub?", href: "/services/web-development/pub-website-design", label: "Pub website design" },
     { question: "Building for a brewery?", href: "/services/web-development/brewery-website-design", label: "Brewery website design" },
   ],
-  caseStudy: {
-    text: "A full rebuild for a community pub: a faster site, easier for the team to run and a lot easier for customers to use.",
-    showScreenshot: true,
-  },
+  caseStudy: true,
   faqs: [
     {
       question: "How much does a website cost?",
