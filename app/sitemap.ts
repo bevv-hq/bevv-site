@@ -5,6 +5,7 @@ import { projects } from "@/lib/projects";
 import { services } from "@/lib/services";
 import { staticPageDates } from "@/lib/lastmod";
 import { landingPages } from "@/lib/landing-pages";
+import { sectorPagePath, sectorPages } from "@/lib/sector-pages";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths = [
@@ -15,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...landingPages
       .filter((page) => page.indexable)
       .map((page) => `/services/web-development/${page.slug}`),
+    ...sectorPages.filter((page) => page.indexable).map(sectorPagePath),
     "/about",
     "/work",
     ...projects.map((project) => `/work/${project.slug}`),

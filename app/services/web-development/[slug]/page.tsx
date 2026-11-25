@@ -8,8 +8,9 @@ import Container from "@/components/Container";
 import FAQItem from "@/components/FAQItem";
 import FurtherReading from "@/components/FurtherReading";
 import JsonLd from "@/components/JsonLd";
+import LandingItemList from "@/components/LandingItemList";
 import { breadcrumbJsonLd, faqJsonLd, organizationId } from "@/lib/jsonld";
-import { landingPages, type LandingItem } from "@/lib/landing-pages";
+import { landingPages } from "@/lib/landing-pages";
 import { pageMetadata, siteUrl } from "@/lib/seo";
 import { steps } from "@/lib/steps";
 
@@ -40,26 +41,6 @@ export async function generateMetadata({
     // Placeholder-safe: stays out of search until the copy is signed off.
     robots: page.indexable ? undefined : { index: false, follow: true },
   };
-}
-
-function ItemList({ items }: { items: LandingItem[] }) {
-  return (
-    <div className="border-t border-line">
-      {items.map((item) => (
-        <div key={item.title} className="border-b border-line py-6">
-          <h3 className="font-display text-2xl tracking-wide text-ink sm:text-3xl">
-            {item.title}
-          </h3>
-          <p className="mt-3 max-w-2xl text-muted">{item.text}</p>
-          {item.link && (
-            <Link href={item.link.href} className={`${linkClass} mt-4 inline-block`}>
-              {item.link.label} &rarr;
-            </Link>
-          )}
-        </div>
-      ))}
-    </div>
-  );
 }
 
 export default async function LandingPage({
@@ -134,7 +115,7 @@ export default async function LandingPage({
             </h2>
             <p className="mt-5 text-muted">{page.needs.intro}</p>
           </div>
-          <ItemList items={page.needs.items} />
+          <LandingItemList items={page.needs.items} />
         </Container>
       </section>
 
@@ -146,7 +127,7 @@ export default async function LandingPage({
             </h2>
             <p className="mt-5 text-muted">{page.build.intro}</p>
           </div>
-          <ItemList items={page.build.items} />
+          <LandingItemList items={page.build.items} />
         </Container>
       </section>
 

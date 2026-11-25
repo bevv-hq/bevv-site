@@ -14,6 +14,13 @@ export const digitalMarketing: Service = {
   hook: "A great beer or a cracking pub only goes so far if people can't find you.",
   introLinks: [{ phrase: "local SEO", href: "/blog/pub-near-me-local-seo-guide" }],
   furtherReading: ["pub-near-me-local-seo-guide", "pdf-menu-costing-you-customers"],
+  landingLinks: [
+    {
+      question: "Run a pub?",
+      href: "/services/digital-marketing/pub-marketing",
+      label: "See pub marketing",
+    },
+  ],
   caseStudy: true,
   contentIntro: ["Digital marketing for breweries, taprooms and pubs that want more people at the bar and fewer quiet Tuesdays. We help independent drinks and hospitality businesses get found, get booked and get remembered. We cover local SEO, paid search, email, social and content, and every campaign is built around your venue, your regulars and your calendar.", "Whether you're launching a new beer, filling the diary for Christmas or turning first-timers into regulars, we plan it, run it and show you exactly what it's doing. We don't report vanity metrics or hide behind jargon. You get clear numbers on bookings, orders and footfall, explained in plain English."],
   contentSpecialist: { title: "Brewery and Pub Marketing Specialists", paragraphs: ["Marketing a pub is nothing like marketing a SaaS company, so we don't pretend it is. We work only with breweries, taprooms and pubs, which means we know your seasons, your customers and the searches that bring them in, like \"pub near me\", \"Sunday roast\" and \"dog-friendly beer garden\".", "We pair long-term SEO with paid search for when you need results now. We also make sure you're ready for how people are starting to search, including AI tools like ChatGPT and Google's AI Overviews. Everything works from one strategy, so your channels back each other up instead of competing for budget."] },

@@ -1,3 +1,5 @@
+import type { SectionBody } from "@/components/SectionContent";
+
 export type SubService = {
   title: string;
   priority?: boolean;
@@ -34,6 +36,8 @@ export type Service = {
   furtherReading?: string[];
   // Sector landing pages linked from this service page
   landingLinks?: { question: string; href: string; label: string }[];
+  // Extra content section shown after the sub-services list
+  extraSection?: SectionBody & { title: string; intro?: string };
   // Case study block (links to /work/the-bell-and-bear)
   caseStudy?: boolean;
 };

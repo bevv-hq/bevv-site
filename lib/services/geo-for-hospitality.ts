@@ -14,6 +14,40 @@ export const geoForHospitality: Service = {
   hook: "More and more people are asking AI where to go for a pint.",
   introLinks: [{ phrase: "AI search", href: "/blog/will-chatgpt-recommend-your-pub" }],
   furtherReading: ["will-chatgpt-recommend-your-pub", "pub-near-me-local-seo-guide"],
+  landingLinks: [
+    {
+      question: "Run a pub, inn or brewery?",
+      href: "/services/geo-for-hospitality/ai-search-for-pubs",
+      label: "See AI search for pubs",
+    },
+  ],
+  extraSection: {
+    title: "Pubs with rooms, inns and hotels",
+    intro:
+      "If you have rooms, AI search matters twice over. People ask AI tools for somewhere to stay, not just somewhere to drink: \"a cosy inn with rooms near Hay-on-Wye\", \"a dog-friendly pub with rooms in the Peak District\", \"somewhere to stay with a good restaurant near Oxford\".",
+    paragraphs: [
+      "For inns, pubs with rooms and small hotels, we also make sure AI tools and search engines understand:",
+    ],
+    bullets: [
+      {
+        lead: "Your rooms:",
+        text: "how many, what kind, whether dogs and children are welcome, accessibility, parking and breakfast.",
+      },
+      {
+        lead: "The structured data for accommodation:",
+        text: "Hotel, BedAndBreakfast or LodgingBusiness alongside your pub listing.",
+      },
+      {
+        lead: "Your booking route:",
+        text: "whether people should book direct on your website, so AI tools don't only send them to booking sites.",
+      },
+      {
+        lead: "What's nearby:",
+        text: "walks, attractions and events that people pair with a stay.",
+      },
+    ],
+    outro: "That's GEO for hotels and inns, built for independent venues rather than chains.",
+  },
   caseStudy: true,
   contentIntro: ["People have stopped scrolling Google for somewhere to drink. They're asking ChatGPT, Perplexity and Google's AI Overviews, and those tools don't give ten blue links. They give a shortlist. GEO for Hospitality (Generative Engine Optimisation) makes sure your brewery, taproom or pub is on it.", "We look at how AI search sees you today, then fix the gaps in your content, listings, structured data and reputation so they have every reason to recommend you. The result is more of the right people asking the right question and hearing your name in the answer."],
   contentSpecialist: { title: "AI Search Specialists for the Drinks Trade", paragraphs: ["Most GEO advice is written for software companies and online shops. Recommending a pub is a completely different question. People ask AI for things like \"a proper cask pub near the station\", \"a taproom that's good with kids\" or \"somewhere with live music on a Saturday\", and the tools answer based on very specific details about your venue.", "We specialise in exactly that. We make sure every detail about you is clear, consistent and trusted across the web, from your own site to Google, TripAdvisor, Untappd and local guides. We won't promise you a guaranteed ChatGPT mention, because nobody honestly can. What we will do is make you as easy as possible to recommend, then track how that changes over time."] },

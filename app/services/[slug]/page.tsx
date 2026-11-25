@@ -8,6 +8,7 @@ import FAQItem from "@/components/FAQItem";
 import LinkedParagraphs from "@/components/LinkedParagraphs";
 import FurtherReading from "@/components/FurtherReading";
 import ReadingAndCaseStudy from "@/components/ReadingAndCaseStudy";
+import SectionContent from "@/components/SectionContent";
 import SubServiceItem from "@/components/SubServiceItem";
 import MoreServicesModal from "@/components/MoreServicesModal";
 import { services } from "@/lib/services";
@@ -139,6 +140,26 @@ export default async function ServicePage({
                 </div>
               )}
             </div>
+          </Container>
+        </section>
+      )}
+
+      {service.extraSection && (
+        <section className="border-t border-line bg-paper">
+          <Container className="grid grid-cols-1 gap-10 py-20 lg:grid-cols-[3fr_7fr] lg:gap-16">
+            <div>
+              <SectionHeading>{service.extraSection.title}</SectionHeading>
+              {service.extraSection.intro && (
+                <p className="mt-5 text-muted">{service.extraSection.intro}</p>
+              )}
+            </div>
+            <SectionContent
+              paragraphs={service.extraSection.paragraphs}
+              bullets={service.extraSection.bullets}
+              items={service.extraSection.items}
+              outro={service.extraSection.outro}
+              link={service.extraSection.link}
+            />
           </Container>
         </section>
       )}
