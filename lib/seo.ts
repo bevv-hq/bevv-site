@@ -6,6 +6,7 @@ export const contactEmail = "hello@bevv.co.uk";
 export const socialProfiles = [
   "https://www.linkedin.com/company/bevv",
   "https://www.instagram.com/bevv.agency",
+  "https://clutch.co/profile/bevv",
 ];
 export const founderName = "Joe Shipton";
 export const founderLinkedIn = "https://www.linkedin.com/in/joe-shipton/";
